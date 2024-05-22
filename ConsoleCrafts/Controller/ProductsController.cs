@@ -22,4 +22,13 @@ public class ProductsController : ControllerBase
         return ProductsService.GetProducts();
     }
 
+    // [HttpPatch]
+    [Route("Rate")]
+    [HttpGet]
+    public ActionResult Get([FromQuery]string ProductId, [FromQuery]int Rating)
+    {
+        ProductsService.AddRating(ProductId, Rating);
+        return Ok();
+    }
+
 }
