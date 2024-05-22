@@ -1,4 +1,5 @@
 ﻿@page
+@using ConsoleCrafts.Components
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -6,20 +7,8 @@
 
 <div class="text-center">
     <h1 class="display-4">Control Crafts</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<div class="row card-columns card-group">
-    @foreach (var product in Model.Products)
-    {
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <div class="card-img" style="background-image: url('@product.Image')"></div>
-                <div class="card-body">
-                    <h5>@product.Title</h5>
-                </div>
-            </div>
-        </div>
-    }
-</div>
+@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
 
+<script src="_framework/blazor.server.js" ></script>

@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<JsonFileProductsService>();
+builder.Services.AddServerSideBlazor();
 
 builder.Services.AddControllers();
 
@@ -51,5 +52,6 @@ app.MapRazorPages();
 // });
 
 app.MapControllers();
+app.MapBlazorHub();
 
 app.Run();
