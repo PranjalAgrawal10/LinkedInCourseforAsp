@@ -8,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<JsonFileProductsService>();
 
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -47,5 +49,7 @@ app.MapRazorPages();
 //     var json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
 //     return context.Response.WriteAsync(json);
 // });
+
+app.MapControllers();
 
 app.Run();
