@@ -9,8 +9,17 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-@foreach (var product in Model.Products)
-{
-    <h2> @product.Title </h2>
-    
-}
+<div class="row card-columns card-group">
+    @foreach (var product in Model.Products)
+    {
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-img" style="background-image: url('@product.Image')"></div>
+                <div class="card-body">
+                    <h5>@product.Title</h5>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
