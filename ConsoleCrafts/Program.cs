@@ -1,3 +1,5 @@
+using System.Text.Json;
+using ConsoleCrafts.Models;
 using ConsoleCrafts.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +25,27 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// for older version
+// app.UseEndpoints(endpoint =>
+// {
+//     endpoint.MapRazorPages();
+//     endpoint.MapGet("/products", (context) =>
+//     {
+//         var products = app.Services.GetService<JsonFileProductsService>().GetProducts();
+//         var json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
+//         return context.Response.WriteAsync(json);
+//     });
+// });
+
+
 app.MapRazorPages();
+
+// newer version
+// app.MapGet("/products", (context) => 
+// {
+//     var products = app.Services.GetService<JsonFileProductsService>().GetProducts();
+//     var json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
+//     return context.Response.WriteAsync(json);
+// });
 
 app.Run();
